@@ -1,26 +1,66 @@
 @import "tailwindcss";
 
+/* Dark mode is turned on by the "dark" class on <html> (set by next-themes) */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ---------- LIGHT MODE ---------- */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --bg: #f5f6f7;
+  --surface: #ffffff;
+  --inset: #f0f2f4;
+  --border: #e1e4e8;
+  --fg: #16181b;
+  /* muted / accent / warn are darkened so small text passes WCAG AA (4.5:1) on bg, surface and inset */
+  --muted: #62686f;
+  --accent: #3d761d;
+  --accent-soft: rgba(61, 118, 29, 0.1);
+  --primary: #3d761d;
+  --primary-fg: #ffffff;
+  --warn: #8a5a0a;
+  --danger: #c0392b;
 }
 
+/* ---------- DARK MODE (matches the design) ---------- */
+.dark {
+  --bg: #0e1012;
+  --surface: #15171a;
+  --inset: #101214;
+  --border: #25282c;
+  --fg: #e8eaed;
+  --muted: #8a8f96;
+  --accent: #b5e48c;
+  --accent-soft: rgba(181, 228, 140, 0.1);
+  --primary: #b5e48c;
+  --primary-fg: #101214;
+  --warn: #e5b96b;
+  --danger: #e5736b;
+}
+
+/* Connect the variables to Tailwind class names, e.g. bg-surface, text-muted */
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-inset: var(--inset);
+  --color-border: var(--border);
+  --color-fg: var(--fg);
+  --color-muted: var(--muted);
+  --color-accent: var(--accent);
+  --color-accent-soft: var(--accent-soft);
+  --color-primary: var(--primary);
+  --color-primary-fg: var(--primary-fg);
+  --color-warn: var(--warn);
+  --color-danger: var(--danger);
+
+  --font-sans: var(--font-inter);
+  --font-mono: var(--font-jetbrains-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html,
+body {
+  height: 100%;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--bg);
+  color: var(--fg);
 }
