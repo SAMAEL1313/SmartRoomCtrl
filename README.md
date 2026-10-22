@@ -1,6 +1,6 @@
 # ROOM / CTRL
 
-A smart room control dashboard for one studio: a ceiling light (relay), a motion sensor (PIR), an ambient light sensor and a smart plug. You can switch the light, choose AUTO or MANUAL mode, edit the automation rules and thresholds, and read the activity log.
+A smart room control dashboard for a room: a ceiling light (relay), a motion sensor (PIR), an ambient light sensor and a smart plug. You can switch the light, choose AUTO or MANUAL mode, edit the automation rules and thresholds, and read the activity log.
 
 **This repo is the frontend only.** There is no backend, API or database. All data comes from a client-side mock store (`lib/mock-data.ts`), so changes reset when you reload the page.
 
